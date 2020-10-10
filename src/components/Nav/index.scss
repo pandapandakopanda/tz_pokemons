@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  background-color: pink;
+  min-height: 100%;
+  border: 5px solid white;
+  overflow-y: auto;
+  ul {
+    min-width:20%;
+    max-height: 100vh;
+    padding: 0;
+    li {
+      list-style: none;
+      width: 90%;
+      border: 1px solid rgb(255, 255, 255);
+      color: white;
+      font-size: 20px;
+      margin-top: 5px;
+      margin-left: 5px;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+@media screen and (max-width: 355px){
+  .wrapper {
+    border: none;
+    min-width: 30% ;
+  }
+}

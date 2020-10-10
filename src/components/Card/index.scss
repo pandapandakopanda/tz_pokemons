@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  border: 2px solid pink;
+  border-radius: 5px;
+  margin: 5px;
+  overflow: hidden;
+}
+a {
+  user-select: none;
+  text-decoration: none;
+  color: white;
+}
+
+h4 {
+  background-color: pink;
+  margin: 0;
+  text-align: center;
+}
+
+.image {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+img {
+  height: 100px;
+}
+
+
+@media screen and (max-width: 355px){
+  .wrapper {
+    width: 100px;
+    height: 50px;
+  }
+  h4 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image {
+    display: none;
+  }
+}
