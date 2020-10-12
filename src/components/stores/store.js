@@ -39,6 +39,7 @@ class Store {
 
   getPokeImages = (pokeID) => `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
 
+
 }        
 
 

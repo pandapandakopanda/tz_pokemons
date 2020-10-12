@@ -1,16 +1,15 @@
 .main {
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
+  flex: 1;
   justify-content: center;
   background-color: rgb(234, 250, 250);
   border: 5px solid white;
   overflow-y: auto;
 }
 
-@media screen and (max-width: 355px){
+@media screen and (max-width: 445px){
   .main {
-    width: 100%;
-    border: none
+    display: none;
   }
 }

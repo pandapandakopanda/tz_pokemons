@@ -5,10 +5,10 @@ import ST from './index.scss'
 
 
  class PokePage extends React.Component {
-  render(){
-    console.log('this.props: ', this.props);
+   render(){
     return(
       <div className={ST.wrapper}>
+        
       </div>
     )
   }

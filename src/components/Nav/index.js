@@ -3,8 +3,7 @@ import ST from './index.scss'
 import store from '../stores/store'
 import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
-import PokePage from '../PokePage'
-import { routes } from '../../routes'
+
 
 @observer
 class Nav extends React.Component {
@@ -23,7 +22,6 @@ class Nav extends React.Component {
 
   render(){
     const list = store.allPokemonsData.map((el, index) => this.listElement(el, index))
-    console.log('routes: ', routes);
     return(
         <ul className={ST.wrapper}>  
           {list}

@@ -28,12 +28,6 @@
     "react-dom": "^16.13.1",
     "react-js-pagination": "^3.0.3",
     "react-router-dom": "^5.2.0",
-    "react-router5": "^8.0.1",
-    "roboto-fontface": "^0.10.0",
-    "router5": "^8.0.1",
-    "router5-plugin-browser": "^8.0.1",
-    "router5-plugin-listeners": "^8.0.1",
-    "router5-plugin-logger": "^8.0.1",
     "style-loader": "^1.2.1"
   },
   "devDependencies": {
