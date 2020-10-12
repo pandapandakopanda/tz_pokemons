@@ -1,14 +1,15 @@
 .wrapper {
+  min-width:20%;
+  max-height: 100vh;
+  padding: 0;
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  flex: 0 0 1;
+  width: 200px;
   background-color: pink;
   min-height: 100%;
   border: 5px solid white;
   overflow-y: auto;
-  ul {
-    min-width:20%;
-    max-height: 100vh;
-    padding: 0;
     li {
       list-style: none;
       width: 90%;
@@ -19,7 +20,6 @@
       margin-left: 5px;
       cursor: pointer;
       user-select: none;
-    }
   }
 }
 
