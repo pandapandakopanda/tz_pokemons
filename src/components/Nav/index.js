@@ -14,7 +14,7 @@ class Nav extends React.Component {
   }
 
   listElement = (el, index) => {
-    return <Link to={`/pokemon/${index}`} key={index}>
+    return <Link to={`/pokemon/${index+1}`} key={index}>
               <li>
                 {el.toUpperCase()}
               </li>
