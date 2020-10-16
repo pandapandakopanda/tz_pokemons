@@ -8,24 +8,39 @@ import ST from './index.scss'
 @observer
 class PokePage extends React.Component {
 
+  e = null
+
   checkCurrentId(){
     const { id } = this.props.match.params
-    console.log('this.props.store: ', this.props.store);
+    console.log('id: ', id);
     this.props.store.pokePage.fetchDataIfNeeded(id)
+    this.e = this.props.store.pokePage.fullData
   }
-
+  
   componentDidMount(){
+    console.log('-------------------');
+    console.log('didMount');
     this.checkCurrentId()
   }
 
+  
   componentDidUpdate(){
+    console.log('--------------------');
+    console.log('didUpdate');
     this.checkCurrentId()
-  }
+  } 
+
+ 
+
 
   render(){
+
+    const data = this.props.store.pokePage.data.then(resp => resp)
+    console.log('data: ', data);
+    
     return(
       <div className={ST.wrapper}>
-        POKEPAGE        
+        POKEPAGE     
       </div>
     )
   }

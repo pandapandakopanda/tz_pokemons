@@ -8,7 +8,6 @@ class Store {
   @observable totalPage = 0
   @observable activePage = 1 
   @observable allPokemonsData = []
-  @observable fullPokeData = []
 
   pokePage = new PokePage()
 
@@ -43,15 +42,6 @@ class Store {
 
   getPokeImages = (pokeID) => `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
 
-
-  getPokeDataFromAPI = (url) => API.get(`${url}`)
-  .then(response => response.data)
-  
-  @action getFullPokeData = (url) => {
-    this.getPokeDataFromAPI(url).then(response => {
-      this.fullPokeData = response
-    })
-  }
 }        
 
 
