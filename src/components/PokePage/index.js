@@ -39,10 +39,9 @@ class PokePage extends React.Component {
       if( isNull(data) || isNull(abilitiesData)){
         return 'no data'
       } else {
-        const {id} = this.props.store.pokePage
         return (
           isFetching ? 'waitin...' : 
-          <div className={ST.wrapper}>
+          <div className={ST.data}>
             <div className={ST.about}>
               <p>name: {data.name}</p>
               <p>weight: {data.weight}</p>
@@ -53,17 +52,16 @@ class PokePage extends React.Component {
               <p>generation: {abilitiesData.generation}</p>
               <p>is exist in main series: {abilitiesData.is_main_series}</p>
             </div>
-            <img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />
           </div>
         )
       }
     }
     
-    const view = getData()
-
+    const {id} = this.props.store.pokePage
     return(
-      <div>    
-        {view}
+      <div className={ST.wrapper}>    
+        {getData()}
+        <img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />
       </div>
     )
   }
