@@ -12,10 +12,15 @@ export const pokeData = (name, weight, base_experience) => {
   return pokeDataObject
 }
 export const abilityData = (name, generation, is_main_series ) => {
+  const replaceSpace = (str) => str.replace('-',' ')
+  const deleteGenInName = (str) => str.replace('generation-','')
+  
   const abilityDataObject = {
-    name: (name) ? name : 'no name',
-    generation: (generation) ? generation : 'dont have info',
+    name: (name) ? replaceSpace(cName(name)) : 'no name',
+    generation: (generation) ? deleteGenInName(generation).toUpperCase() : 'dont have info',
     is_main_series: (is_main_series) ? 'yes' : 'no'
   }
   return abilityDataObject
 }
+
+

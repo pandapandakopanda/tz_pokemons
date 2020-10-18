@@ -1,17 +1,23 @@
 .wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   padding-left: 0;
   flex: 1;
   overflow-y: auto;
+  & img {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .about, .ability {
   display: flex;
   padding-left: 15px;
   margin: 5px;
-  width: 300px;
+  color: white;
+  width: 400px;
   flex-direction: column;
   background-color:pink;
   & p{
@@ -23,5 +29,16 @@
 @media screen and (max-width: 445px){
   .wrapper {
     display: none;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .about, .ability {
+    width: 200px;
+  }
+
+  .wrapper > img {
+    width: 200px;
+    height: 200px;
   }
 }
