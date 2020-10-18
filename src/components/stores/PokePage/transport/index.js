@@ -5,3 +5,9 @@ export function getPokemonData( id ){
     return response
   })
 }
+
+export function getAbilitiesData( id ) {
+  return API.get(`/ability/${id}`).then( response => {
+    return response
+  })
+}

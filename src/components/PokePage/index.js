@@ -1,6 +1,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
+import { isNull } from '../stores/help'
 
 import ST from './index.scss'
 
@@ -12,21 +13,16 @@ class PokePage extends React.Component {
 
   checkCurrentId(){
     const { id } = this.props.match.params
-    console.log('id: ', id);
     this.props.store.pokePage.fetchDataIfNeeded(id)
     this.e = this.props.store.pokePage.fullData
   }
   
   componentDidMount(){
-    console.log('-------------------');
-    console.log('didMount');
     this.checkCurrentId()
   }
 
   
   componentDidUpdate(){
-    console.log('--------------------');
-    console.log('didUpdate');
     this.checkCurrentId()
   } 
 
@@ -34,13 +30,38 @@ class PokePage extends React.Component {
 
 
   render(){
-
-    const data = this.props.store.pokePage.data.then(resp => resp)
-    console.log('data: ', data);
+    const data = this.props.store.pokePage.baseData
+    const { abilitiesData } = this.props.store.pokePage
+    const { isFetching } = this.props.store.pokePage
     
+    
+    const getData = () => {
+      if( isNull(data) || isNull(abilitiesData)){
+        return 'no data'
+      } else {
+        return (
+          isFetching ? 'waitin...' : 
+          <div className={ST.wrapper}>
+            <div className={ST.about}>
+              <p>name: {data.name}</p>
+              <p>weight: {data.weight}</p>
+              <p>base experience: {data.base_experience}</p>
+            </div>
+            <div className={ST.ability}>
+              <p>ability: {abilitiesData.name}</p>
+              <p>generation: {abilitiesData.generation}</p>
+              <p>is exist in main series: {abilitiesData.is_main_series}</p>
+            </div>
+          </div>
+        )
+      }
+    }
+    
+    const view = getData()
+
     return(
-      <div className={ST.wrapper}>
-        POKEPAGE     
+      <div>    
+        {view}
       </div>
     )
   }

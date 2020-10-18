@@ -5,7 +5,7 @@ import PokePage from '../PokePage'
 import  store  from '../stores/store'
 import { createId } from '../stores/help'
 import { observer } from 'mobx-react'
-import { cName } from '../stores/converter'
+import { cName } from '../stores/PokePage/transport/converter'
 import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
 
 @observer
@@ -19,7 +19,7 @@ class Main extends React.Component {
         <Card 
           key={el.name} 
           name={cName(el.name)} 
-          url={el.url}
+          url={`#/pokemon/${imgID}`}
           imgID={imgID}
         />
       )
