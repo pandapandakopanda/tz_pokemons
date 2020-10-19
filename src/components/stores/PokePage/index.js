@@ -33,7 +33,8 @@ export default class pokeStore{
   }
 
   @action setAbilitiesData = (data) => {
-    this.abilitiesData = abilityData(data.name, data.generation.name, data.is_main_series)
+    console.log('data: ', data);
+    this.abilitiesData = abilityData(data.name, data.generation.name, data.is_main_series, data.flavor_text_entries)
   }
 
   @action setId = (id) => {

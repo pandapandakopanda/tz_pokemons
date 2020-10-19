@@ -42,15 +42,17 @@ class PokePage extends React.Component {
         return (
           isFetching ? 'waitin...' : 
           <div className={ST.data}>
-            <div className={ST.about}>
-              <p>name: {data.name}</p>
-              <p>weight: {data.weight}</p>
-              <p>base experience: {data.base_experience}</p>
-            </div>
-            <div className={ST.ability}>
-              <p>ability: {abilitiesData.name}</p>
-              <p>generation: {abilitiesData.generation}</p>
-              <p>is exist in main series: {abilitiesData.is_main_series}</p>
+            <h1> {data.name}</h1>
+            <div className = {ST.text_pic}>
+              <div className={ST.about}>
+                <p>Вес: {data.weight}</p>
+                <p>Начальный опыт: {data.base_experience}</p>
+                <p>Способность: {abilitiesData.name}</p>
+                <p>Поколение: {abilitiesData.generation}</p>
+                <p>Наличие в оригинальной серии игр: {abilitiesData.is_main_series}</p>
+                <p>Особенность: {abilitiesData.flavor_text}</p>
+              </div>
+              <img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />
             </div>
           </div>
         )
@@ -61,7 +63,7 @@ class PokePage extends React.Component {
     return(
       <div className={ST.wrapper}>    
         {getData()}
-        <img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />
+       
       </div>
     )
   }

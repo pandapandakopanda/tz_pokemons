@@ -7,9 +7,11 @@
   background-color: pink;
   color: white;
   font-size: 50px;
+  border-bottom: 5px solid rgb(221, 147, 147);
   & a {
     margin-left: 200px;
   }
+  
 }
 
 @media screen and (max-width: 355px){
