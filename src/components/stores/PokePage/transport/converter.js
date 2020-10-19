@@ -15,7 +15,16 @@ export const abilityData = (name, generation, is_main_series,flavor_text_entries
 
   const replaceSpace = (str) => str.replace('-',' ')
   const deleteGenInName = (str) => str.replace('generation-','')
-  const flavor_text = flavor_text_entries[0].flavor_text
+  const getEn = (flavor_text_entries)=>{
+    const en = flavor_text_entries.filter(el => el.language.name === 'en')
+    return en
+  }
+  const flavor_text = getEn(flavor_text_entries).map((el,i )=> {
+    return {
+      [replaceSpace(el.version_group.name)]:el.flavor_text
+    }
+  })
+  console.log(' flavor_text: ',  flavor_text);
   
   const abilityDataObject = {
     name: (name) ? replaceSpace(cName(name)) : 'no name',

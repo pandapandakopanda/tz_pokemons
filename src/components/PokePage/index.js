@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
@@ -9,8 +10,9 @@ import ST from './index.scss'
 @observer
 class PokePage extends React.Component {
 
-  e = null
-
+  state = {
+    isListOpen: false
+  }
   checkCurrentId(){
     const { id } = this.props.match.params
     this.props.store.pokePage.fetchDataIfNeeded(id)
@@ -26,13 +28,23 @@ class PokePage extends React.Component {
     this.checkCurrentId()
   } 
 
- 
+  createListOfFlavors = (flavor_text) => {
+    return flavor_text.map((el, i) => {
+      const name = Object.keys(el)[0]
+      console.log('name: ', name);
+      return <li key={i}>{name.toUpperCase()}: {el[name]}</li>
+    })
+  }
 
+  listOnClick = () => {
+    this.setState({isListOpen:!this.state.isListOpen})
+  }
 
   render(){
     const data = this.props.store.pokePage.baseData
     const { abilitiesData } = this.props.store.pokePage
     const { isFetching } = this.props.store.pokePage
+
     
     
     const getData = () => {
@@ -50,9 +62,19 @@ class PokePage extends React.Component {
                 <p>Способность: {abilitiesData.name}</p>
                 <p>Поколение: {abilitiesData.generation}</p>
                 <p>Наличие в оригинальной серии игр: {abilitiesData.is_main_series}</p>
-                <p>Особенность: {abilitiesData.flavor_text}</p>
+                <p className={ST.activeP} onClick={this.listOnClick}>
+                  {(this.state.isListOpen)
+                  ?'Показать изображение'
+                  :'Посмотреть особенности' }
+                </p>
               </div>
-              <img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />
+              {(this.state.isListOpen)
+              ? <div className={ST.ability} >
+                  <ul>
+                    {this.createListOfFlavors(abilitiesData.flavor_text)}
+                  </ul>
+                </div>
+              :<img src={ this.props.store.getPokeImages(id) } alt='` Img server problem... sorry' />}
             </div>
           </div>
         )
